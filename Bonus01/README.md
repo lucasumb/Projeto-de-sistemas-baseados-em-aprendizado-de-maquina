@@ -23,7 +23,7 @@ Devemos projetar e experimentar um problema de classificação binária usando c
 
 ## Como Executar o Projeto
 
-Para executar a análise contida neste notebook, siga os passos abaixo:
+Para executar a análise contida no [notebook](https://github.com/lucasumb/Projeto-de-sistemas-baseados-em-aprendizado-de-maquina/blob/main/Bonus01/notebooks), siga os passos abaixo:
 
 **1. Pré-requisitos:**
 -   Python 3.x

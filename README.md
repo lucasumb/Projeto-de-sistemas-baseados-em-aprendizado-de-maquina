@@ -19,3 +19,4 @@ Os projetos estão organizados em pastas, cada uma correspondendo a um tópico o
 #### Unidade 1
 
 * [Projeto 01](https://github.com/lucasumb/Projeto-de-sistemas-baseados-em-aprendizado-de-maquina/blob/main/Projeto01)
+* [Bonus 01](https://github.com/lucasumb/Projeto-de-sistemas-baseados-em-aprendizado-de-maquina/blob/main/Bonus01)
