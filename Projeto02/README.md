@@ -74,7 +74,7 @@ Ao visualizar as saídas das camadas, foi possível observar a transformação d
 
 ### Video explicativo
 
-* [Parte 1]()
+* [Parte 1](https://www.loom.com/share/688075e56e2643a7b6d49c399f4f1ff9)
 
-* [Parte 2]()
+* [Parte 2](https://www.loom.com/share/b60c107bb3b04c0b8277066883c6c038)
 
