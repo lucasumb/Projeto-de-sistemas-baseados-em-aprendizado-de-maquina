@@ -62,13 +62,13 @@ As principais bibliotecas utilizadas são:
 
 O dataset original (42k+ entradas) foi reduzido para ~19k após uma limpeza rigorosa de outliers utilizando o método IQR (Interquartile Range), garantindo que o modelo não fosse enviesado por propriedades de luxo ou erros de cadastro. Com isso, fiz um heatmap com a correlação com a variavel Preço.
 
-<center><img width="500" src="results/heatmap.png"></center>
+<center><img width="800" src="results/heatmap.png"></center>
 
 Após remover a variavel Preço do target, usando o modelo sequencial linear (PyTorch) treinado por 100 épocas, tanto com SDG como Adam, consecutivamente, obtivemos esses resultados:
 
-<center><img width="500" src="results/loss_SDG.png"></center>
+<center><img width="800" src="results/loss_SDG.png"></center>
 
-<center><img width="500" src="results/loss_adam.png"></center>
+<center><img width="800" src="results/loss_adam.png"></center>
 
 Comparando os otimizadores de SDG e Adam:
 
