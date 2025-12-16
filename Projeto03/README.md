@@ -1,24 +1,114 @@
-Este projeto vale 10,0 pontos para a Unidade 2.
-Este projeto apresenta a implementação de uma Rede Neural Convolucional (CNN) utilizando a biblioteca PyTorch. O objetivo principal foi desenvolver uma estrutura de treinamento modular e implementar mecanismos para visualizar o funcionamento interno da rede através do uso de Hooks do PyTorch.
+Este projeto vale 10,0 pontos para a Unidade 3.
+O trabalho final consiste na exploração aprofundada do Capítulo 6 – “Deep Learning with PyTorch”, do livro Deep Learning with PyTorch Step-by-Step.
+
+# Participantes deste projeto
+
+● IGOR SERGIO DE FRANCA CORREIA 
+
+● LUCAS DE OLIVEIRA UMBELINO
 
 ---
 
 ## Objetivos
 
-1) Escolher um dataset do torchvision.datasets (≠ CIFAR10). 
-2) Manter a arquitetura-base (LeNet-like) como visto em aula, adaptando apenas in_channels se necessário. 
-3) Treinar o modelo e registrar métricas de loss e accuracy (treino/val).  
-4) Implementar Hooks para capturar ativações intermediárias.
-5) Visualizar os feature maps de todas camadas.
-6) Escrever uma breve análise (1–2 parágrafos) sobre o que foi observado.
-7) Gravar um vídeo de até 10min sobre o que foi observado.
-8) Organizar um repositório no Github com tudo o que foi desenvolvido, incluindo um arquivo README.md descrevendo todo o trabalho em detalhes.
+Código e experimentos devem ser feitos utilizando o MESMO DATASET escolhido na Unidade 2 da disciplina. Falamos com o professor e tivemos a permissão para alterar o dataset do MNIST para o FashionMNIST. A nota técnica (Medium ou Substack) deve abordar, com profundidade teórica, aplicações práticas e visualizações, os tópicos abaixo, todos aplicados ao dataset:
+
+
+1. EWMA Meets Gradients
+
+Explique como EWMAs (Exponentially Weighted Moving Averages) atuam para:
+
+● suavizar variações bruscas de gradientes,
+
+● permitir atualizações mais estáveis,
+
+● servir de base para otimizadores adaptativos.
+
+A explicação deve conter:
+
+● Intuição de janelas equivalentes,
+
+● α, β e períodos efetivos,
+
+● Comparações com médias móveis simples,
+
+● Gráficos reais aplicados ao dataset da Unidade 2.
+
+2. Adam
+
+Explique e demonstre na prática:
+
+● como o Adam combina momentum + escalonamento por gradientes ao quadrado;
+
+● o papel de β₁, β₂ e ϵ;
+
+● comportamento do Adam no dataset escolhido.
+
+Inclua:
+
+● curva de perda,
+
+● curvas de gradientes,
+
+● comparação com SGD.
+
+3. Visualizing Adapted Gradients
+
+Gerar visualizações obrigatórias mostrando:
+
+● gradientes crus,
+
+● gradientes suavizados (EWMA),
+
+● gradientes adaptados pelo Adam.
+
+4. SGD e Suas Variantes
+
+Explicar e demonstrar com gráficos:
+
+● SGD simples,
+
+● SGD com Momentum,
+
+● SGD com Nesterov.
+
+Mostrar intuitivamente:
+
+● a “trajetória” da otimização,
+
+● diferenças de estabilidade,
+
+● velocidade de convergência.
+
+5. Learning Rate Schedulers
+
+A nota técnica deve conter:
+
+● explicação teórica,
+
+● exemplos em código,
+
+● visualização da evolução da learning rate,
+
+● comparação de desempenho entre diferentes schedulers.
+
+Obrigatório incluir pelo menos dois entre:
+
+● StepLR
+
+● MultiStepLR
+
+● ReduceLROnPlateau
+
+● CyclicLR
+
+● LambdaLR
 
 ---
 
 ## Como Executar o Projeto
 
-Para executar a análise contida no [notebook](https://github.com/lucasumb/Projeto-de-sistemas-baseados-em-aprendizado-de-maquina/tree/main/Projeto02/notebooks), siga os passos abaixo:
+Para executar a análise contida no [notebook](https://github.com/lucasumb/Projeto-de-sistemas-baseados-em-aprendizado-de-maquina/tree/main/Projeto3/notebooks), siga os passos abaixo:
 
 **1. Pré-requisitos:**
 -   Python 3.x
@@ -30,51 +120,14 @@ As principais bibliotecas utilizadas são:
 -   `torchvision`
 -   `matplotlib`
 -   `numpy`
+-   `pandas`
+-   `pillow`
+-   `requests`
+-   `ipykernel`
+
 
 ---
 
-## Resultados
+### Postagem do Medium
 
-Primeiramente, decidi utilizar o dataset MNIST, que é composto por várias imagens com escritas que variam entre os números 0 e 9, ou seja, teremos 10 classes como saída, as quais serão abordadas mais à frente. Em relação ao modelo, fiz leves alterações referentes à arquitetura LeNet disponibilizada pelo professor, principalmente para testar meus conhecimentos sobre como montar e aplicar a fórmula para obter os valores das convoluções:
-
-$$
-\text{Output} = \left\lfloor \frac{n + 2p - k}{s} + 1 \right\rfloor
-$$
-
-Com isso, utilizei este modelo para minha CNN.Com isso, utilizei este modelo para minha CNN.
-
-<center><img width="500" src="results/img00.png"></center>
-
-Em relação ao dataset utilizado, como foi dito anteriormente, fiz uso do **MNIST**. Abaixo, podem ser visualizados alguns dos exemplos utilizados para compor os dados de **treinamento**.
-
-<center><img width="500" src="results/img01.png"></center>
-
-Com o modelo e os dados prontos, a execução com o valor de 20 épocas foi bem estável e sem tantas subidas ou descidas abruptas.
-
-<center><img width="500" src="results/img02.png"></center>
-
-Após isso, conseguimos visualizar os filtros utilizados na primeira convolução e na segunda convolução, **respectivamente** nesta ordem:
-
-<center><img width="500" src="results/img03.png"></center>
-
-<center><img width="500" src="results/img04.png"></center>
-
-Em seguida, utilizei o `attach_hooks` para obter a visualização das `python featurizer_layers = ['conv1', 'relu1', 'maxp1', 'flatten']` e `python classifier_layers = ['fc1', 'relu4', 'fc2']`. Assim, obtive os seguintes gráficos consecutivamente:
-
-<center><img width="500" src="results/img05.png"></center>
-
-<center><img width="500" src="results/img06.png"></center>
-
-Ao visualizar as saídas das camadas, foi possível observar a transformação da informação. As convoluções iniciais mantiveram a estrutura dos dígitos, enquanto as próximas convoluções tornaram-se mais abstratas e esparsas, provavelmente focando na presença de características necessárias para a classificação final. Por fim, foram encontrados estes resultados das métricas pedidas:
-
-- Latest Training Loss: 0.0066
-- Latest Validation Loss: 0.0526
-- Training Accuracy: 99.83%
-- Validation Accuracy: 98.79%
-
-### Video explicativo
-
-* [Parte 1](https://www.loom.com/share/688075e56e2643a7b6d49c399f4f1ff9)
-
-* [Parte 2](https://www.loom.com/share/b60c107bb3b04c0b8277066883c6c038)
-
+* [link](https://medium.com/@igor.sergio.017/otimização-em-deep-learning-um-mergulho-prático-com-pytorch-e-fashionmnist-c2d57e991b66?postPublishedType=initial) 
