@@ -26,6 +26,7 @@ Os projetos estão organizados em pastas, cada uma correspondendo a um tópico o
 
 * [Projeto 02](https://github.com/lucasumb/Projeto-de-sistemas-baseados-em-aprendizado-de-maquina/blob/main/Projeto02)
 
-####
+#### Unidade 3
+
 * [Projeto 03](https://github.com/lucasumb/Projeto-de-sistemas-baseados-em-aprendizado-de-maquina/blob/main/Projeto03)
 
